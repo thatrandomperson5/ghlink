@@ -5,6 +5,13 @@ on:
       - opened
       - labeled
 jobs:
+  auto_label:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: srvaroa/labeler@master
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"   
   verify:
     if: github.event.label.name == 'register'
     runs-on: ubuntu-latest
