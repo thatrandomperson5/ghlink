@@ -1,7 +1,9 @@
-from flask import Flask
-
+from flask import Flask, redirect, abort
+import tomli
 app = Flask(__name__)
 
+with open("public/refs.toml") as f:
+    data = tomli.load(f)
 
 @app.route("/")
 def home():
@@ -10,4 +12,6 @@ def home():
 
 @app.route("/hub/<key>")
 def github(key):
-    pass
+    if key not in data["github"].keys():
+        abort(404)
+    return redirect(data["github"](key))
