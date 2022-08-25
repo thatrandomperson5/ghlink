@@ -7,6 +7,7 @@ app = Flask(__name__)
 def home():
     return "hello world"
 
+
 @app.route("/hub/<key>")
 def github(key):
     pass
