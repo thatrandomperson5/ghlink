@@ -3,7 +3,7 @@ import tomli
 
 app = Flask(__name__)
 
-with open("public/refs.toml") as f:
+with open("public/refs.toml", "rb") as f:
     data = tomli.load(f)
 
 
