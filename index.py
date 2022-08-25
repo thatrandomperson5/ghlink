@@ -1,9 +1,11 @@
 from flask import Flask, redirect, abort
 import tomli
+
 app = Flask(__name__)
 
 with open("public/refs.toml") as f:
     data = tomli.load(f)
+
 
 @app.route("/")
 def home():
