@@ -14,5 +14,4 @@ jobs:
            with:
              github-token: '${{ secrets.GITHUB_TOKEN }}'
              valid-labels: 'register'
-             invalid-labels: 'bug, invalid'
              pull-request-number: '${{ github.event.pull_request.number }}'
