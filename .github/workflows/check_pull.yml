@@ -6,7 +6,7 @@ on:
       - labeled
 jobs:
   verify:
-    if: '${{ github.event.label.name == ''register'' }}'
+    if: ${{ github.event.label.name == 'register' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
