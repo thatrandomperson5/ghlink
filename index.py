@@ -16,4 +16,4 @@ def home():
 def github(key):
     if key not in data["github"].keys():
         abort(404)
-    return redirect(data["github"][key]["value"])
+    return redirect(data["github"][key]["val"])
