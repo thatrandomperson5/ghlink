@@ -1,0 +1,4 @@
+version: 1
+labels:
+- label: "register"
+  title: '(?i)^\[register\].*'
