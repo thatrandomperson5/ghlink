@@ -43,7 +43,9 @@ jobs:
           echo "Labels: ${{ needs.auto_label.outputs.labels }}"
       - name: Get Diff
         uses: technote-space/get-diff-action@v6
-        
+      - name: Git diff
+        id: rdiff
+        run: echo "::set-output name=diff::git diff ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- refs.toml"
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
@@ -51,6 +53,5 @@ jobs:
       - run: python actions/review_blame.py
         env:
           DIFF: ${{ env.GIT_DIFF }}
-          COMMITS_B: ${{ github.event.pull_request.base.sha }}
-          COMMITS_H: ${{ github.event.pull_request.head.sha }}
           author: ${{ github.event.pull_request.user.login }}
+          REAL_DIFF: ${{ steps.rdiff.outputs.diff }}
