@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - run: install -U git+https://github.com/VarMonke/Github-Api-Wrapper
+      - run: pip install -U git+https://github.com/VarMonke/Github-Api-Wrapper
       - run: python actions/review_blame.py
         env:
           PULL: ${{ github.event.number }}
