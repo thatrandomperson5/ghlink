@@ -38,9 +38,12 @@ jobs:
     runs-on: ubuntu-latest   
     steps:
       - uses: actions/checkout@v3
-      - run: echo ${{ needs.auto_label.outputs.labels }}
+      - run: |
+          echo "Labels: ${{ needs.auto_label.outputs.labels }}"
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - run: pip install GitPython
       - run: python actions/review_blame.py
+        env:
+          token: secrets.GITHUB_TOKEN
