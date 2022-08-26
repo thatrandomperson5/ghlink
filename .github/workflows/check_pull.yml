@@ -46,6 +46,4 @@ jobs:
       - run: install -U git+https://github.com/VarMonke/Github-Api-Wrapper
       - run: python actions/review_blame.py
         env:
-          token: secrets.GITHUB_TOKEN
           PULL: ${{ github.event.number }}
-          GIT_REPO_PATH: .git
