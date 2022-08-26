@@ -45,7 +45,7 @@ jobs:
         uses: technote-space/get-diff-action@v6
       - name: Git diff
         id: rdiff
-        run: echo "::set-output name=diff::git diff ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- ./public/refs.toml"
+        run: echo "::set-output name=diff::$(git diff ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- ./public/refs.toml)"
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
