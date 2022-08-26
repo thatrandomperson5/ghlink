@@ -1,14 +1,12 @@
-import os
-from git import Repo
+import github
+import asyncio
 
-repo_path = os.getenv("GIT_REPO_PATH")
+async def main():
+  client = await github.GHClient()
 
-repo = Repo(repo_path)
-assert repo.bare
+  user = await client.get_user(user='Github Actions')
 
-print("Repo at {} successfully loaded.".format(repo_path))
-print("Repo description: {}".format(repo.description))
-print("Repo active branch is {}".format(repo.active_branch))
-for remote in repo.remotes:
-    print('Remote named "{}" with URL "{}"'.format(remote, remote.url))
-print("Last commit for repo is {}.".format(str(repo.head.commit.hexsha)))
+  print(user)
+  print(user.html_url)
+
+asyncio.run(main())
