@@ -20,7 +20,7 @@ jobs:
          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   verify:
     needs: auto_label
-    if: needs.auto_label.outputs.labels == 'register'
+    if: needs.auto_label.outputs.labels == 'register\n'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
