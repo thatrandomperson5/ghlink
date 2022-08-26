@@ -16,7 +16,7 @@ for w, x in toml.items():
             raise TypeError("Values can only be strings.")
         if type(z["author"]) != str:
             raise TypeError("Values can only be strings.")
-        #if z["author"] != os.getenv("author"):
+        # if z["author"] != os.getenv("author"):
         #    raise ValueError(
         #        f"Wrong author: {z['author']}, should be {os.getenv('author')}"
         #    )
