@@ -3,7 +3,7 @@ import os
 import sys
 from urllib.parse import urlparse
 
-with open("public/refs.toml", "rb") as f:
+with open("../public/refs.toml", "rb") as f:
     toml = tomli.load(f)
 authorcount = {}
 for w, x in toml.items():
