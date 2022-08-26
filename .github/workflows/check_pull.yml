@@ -14,7 +14,6 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"   
   verify:
     needs: auto_label
-    if: github.event.label.name == 'register'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,7 +27,6 @@ jobs:
           
   review_blame:
     needs: auto_label
-    if: github.event.label.name == 'register'
     runs-on: ubuntu-latest   
     steps:
       - uses: actions/checkout@v3
