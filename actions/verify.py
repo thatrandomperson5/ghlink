@@ -16,10 +16,12 @@ for w, x in toml.items():
             raise TypeError("Values can only be strings.")
         if type(z["author"]) != str:
             raise TypeError("Values can only be strings.")
+        # fmt: off
         #if z["author"] != os.getenv("author"):
         #    raise ValueError(
         #        f"Wrong author: {z['author']}, should be {os.getenv('author')}"
         #    )
+        # fmt: on
         url = urlparse(z["val"])
         if not url.hostname.split(".")[-2:] in [["github", "com"], ["github", "io"]]:
             raise ValueError("URL is not a valid github url.")
