@@ -7,13 +7,18 @@ on:
 jobs:
   auto_label:
     runs-on: ubuntu-latest
-
+    outputs:
+      labels: ${{ steps.transfer.outputs.labels }}
     steps:
     - uses: srvaroa/labeler@master
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"   
+    - id: transfer
+      run: |
+       echo "::set-output name=labels::$(gh api --jq '.labels.[].name' /repos/{owner}/{repo}/pulls/${{ github.event.number }})\n"
   verify:
     needs: auto_label
+    if: needs.auto_label.outputs.labels == 'register'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
