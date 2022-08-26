@@ -10,3 +10,5 @@ def getitems(l):
 
 diff = getitems(os.getenv("DIFF"))
 print(diff)
+if diff != ["public/refs.toml"]:
+    sys.exit("You can only edit public/refs.toml")
