@@ -1,5 +1,13 @@
 from git import Repo
 
-repo = Repo(self.rorepo.working_tree_dir)
-assert not repo.bare
-print(repo)
+
+async def main():
+    client = await github.GHClient()
+
+    user = await client.get_user(user="Github Actions")
+
+    print(user)
+    print(user.html_url)
+
+
+asyncio.run(main())
