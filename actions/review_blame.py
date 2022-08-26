@@ -18,9 +18,9 @@ blame = os.getenv("REAL_DIFF")
 author = os.getenv("author")
 print(author)
 print(blame)
-    # fmt: off
-    # if z["author"] != os.getenv("author"):
-    #    raise ValueError(
-    #        f"Wrong author: {z['author']}, should be {os.getenv('author')}"
-    #    )
-    # fmt: on
+# fmt: off
+# if z["author"] != os.getenv("author"):
+#    raise ValueError(
+#        f"Wrong author: {z['author']}, should be {os.getenv('author')}"
+#    )
+# fmt: on
