@@ -47,5 +47,5 @@ jobs:
       - run: python actions/review_blame.py
         env:
           token: secrets.GITHUB_TOKEN
-          PULL: /repos/${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}/pulls/${{ github.event.number }}
-          GIT_REPO_PATH: /repos/${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}
+          PULL: ${{ github.event.number }}
+          GIT_REPO_PATH: https://github.com/${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}.git
