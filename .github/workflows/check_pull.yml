@@ -48,4 +48,4 @@ jobs:
         env:
           token: secrets.GITHUB_TOKEN
           PULL: ${{ github.event.number }}
-          GIT_REPO_PATH: https://github.com/${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}.git
+          GIT_REPO_PATH: .git
