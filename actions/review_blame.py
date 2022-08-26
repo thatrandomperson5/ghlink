@@ -2,6 +2,7 @@ import os
 import sys
 import requests
 
+
 def getitems(l):
     l = l.split(" ")
     for x in l:
@@ -14,9 +15,9 @@ print(diff)
 if diff != ["public/refs.toml"]:
     sys.exit("You can only edit public/refs.toml")
 
-        # fmt: off
-        #if z["author"] != os.getenv("author"):
-        #    raise ValueError(
-        #        f"Wrong author: {z['author']}, should be {os.getenv('author')}"
-        #    )
-        # fmt: on
+    # fmt: off
+    # if z["author"] != os.getenv("author"):
+    #    raise ValueError(
+    #        f"Wrong author: {z['author']}, should be {os.getenv('author')}"
+    #    )
+    # fmt: on
