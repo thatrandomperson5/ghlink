@@ -30,7 +30,7 @@ jobs:
       - run: pip install tomli
       - run: python actions/verify.py
         env:
-            author: github.event.pull_request.user.login
+            author: ${{ github.event.pull_request.user.login }}
           
   review_blame:
     needs: auto_label
