@@ -13,7 +13,6 @@ jobs:
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"   
   verify:
-    if: github.event.label.name == 'register'
     needs: auto_label
     runs-on: ubuntu-latest
     steps:
