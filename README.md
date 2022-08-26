@@ -1,7 +1,7 @@
 # ghlink
 ## Usage
 ...
-
+## lol
 Choose any domain and then `/hub/<your_registered_name>`
 #### Domains:
 * ✅[`http://ggit.cf`](http://ggit.cf)
