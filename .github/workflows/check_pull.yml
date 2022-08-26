@@ -15,7 +15,7 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"   
     - id: transfer
       run: |
-       echo "::set-output name=labels::$(gh api --jq '.labels.[].name' /repos/{owner}/{repo}/pulls/${{ github.event.number }})\n"
+       echo "::set-output name=labels::$(gh api --jq '.labels.[].name' /repos/${GITHUB_REPOSITORY%/*}/${{ github.event.repository.name }}/pulls/${{ github.event.number }})\n"
       env:
          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   verify:
