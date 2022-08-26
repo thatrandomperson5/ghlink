@@ -14,7 +14,10 @@ diff = getitems(os.getenv("DIFF"))
 print(diff)
 if diff != ["public/refs.toml"]:
     sys.exit("You can only edit public/refs.toml")
-
+blame = os.getenv("REAL_DIFF")
+author = os.getenv("author")
+print(author)
+print(blame)
     # fmt: off
     # if z["author"] != os.getenv("author"):
     #    raise ValueError(
