@@ -49,4 +49,4 @@ jobs:
       - run: pip install -U git+https://github.com/VarMonke/Github-Api-Wrapper
       - run: python actions/review_blame.py
         env:
-          DIFF: env.GIT_DIFF
+          DIFF: ${{ env.GIT_DIFF }}
