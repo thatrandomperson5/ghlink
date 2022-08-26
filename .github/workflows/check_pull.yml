@@ -23,4 +23,8 @@ jobs:
           python-version: '3.10'
       - run: pip install tomli
       - run: python actions/verify.py
+  review_blame:
+    needs: auto_label
+    if: github.event.label.name == 'register'
+    runs-on: ubuntu-latest   
       
