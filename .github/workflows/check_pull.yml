@@ -13,6 +13,7 @@ jobs:
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"   
   verify:
+    if: github.event.label.name == 'register'
     needs: auto_label
     runs-on: ubuntu-latest
     steps:
@@ -26,6 +27,7 @@ jobs:
             author: github.event.pull_request.user.login
           
   review_blame:
+    if: github.event.label.name == 'register'
     needs: auto_label
     runs-on: ubuntu-latest   
     steps:
