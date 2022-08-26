@@ -16,6 +16,8 @@ jobs:
     - id: transfer
       run: |
        echo "::set-output name=labels::$(gh api --jq '.labels.[].name' /repos/{owner}/{repo}/pulls/${{ github.event.number }})\n"
+      env:
+         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   verify:
     needs: auto_label
     if: needs.auto_label.outputs.labels == 'register'
