@@ -34,6 +34,7 @@ jobs:
           
   review_blame:
     needs: auto_label
+    if: needs.auto_label.outputs.labels == 'register\n'
     runs-on: ubuntu-latest   
     steps:
       - uses: actions/checkout@v3
