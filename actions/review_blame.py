@@ -19,6 +19,14 @@ with open("public/refs.diff", "r") as f:
 blame = blame[4:]
 author = os.getenv("author")
 print(author)
+for x in range(len(blame)):
+    item = blame[x]
+    if item.startswith(" "):
+        blame[x] = {"type": "nochange", "content": item[1:]}
+    elif item.startswith("+"):
+        blame[x] = {"type": "add", "content": item[1:]}
+    elif item.startswith("-"):
+        blame[x] = {"type": "delete", "content": item[1:]}
 print(blame)
 # fmt: off
 # if z["author"] != os.getenv("author"):
