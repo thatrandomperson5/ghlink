@@ -1,7 +1,7 @@
 import os
 import sys
 import requests
-
+import tomli
 
 def getitems(l):
     l = l.split(" ")
@@ -28,9 +28,11 @@ for x in range(len(blame)):
     elif item.startswith("-"):
         blame[x] = {"type": "delete", "content": item[1:]}
 print(blame)
-# fmt: off
-# if z["author"] != os.getenv("author"):
-#    raise ValueError(
-#        f"Wrong author: {z['author']}, should be {os.getenv('author')}"
-#    )
-# fmt: on
+for x in blame:
+    if x["type"] != "nochange":
+        # Standard checks
+        toml = tomli.loads(x["content"])
+        if toml.items()[0]["author"] != os.getenv("author"):
+           raise ValueError(
+               f"Wrong author edited a line: {toml.items()[0]['author']}, should be {os.getenv('author')}"
+           )
