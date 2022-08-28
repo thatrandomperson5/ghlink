@@ -3,6 +3,7 @@ import sys
 import requests
 import tomli
 
+
 def getitems(l):
     l = l.split(" ")
     for x in l:
@@ -33,6 +34,6 @@ for x in blame:
         # Standard checks
         toml = tomli.loads(x["content"])
         if toml.items()[0]["author"] != os.getenv("author"):
-           raise ValueError(
-               f"Wrong author edited a line: {toml.items()[0]['author']}, should be {os.getenv('author')}"
-           )
+            raise ValueError(
+                f"Wrong author edited a line: {toml.items()[0]['author']}, should be {os.getenv('author')}"
+            )
