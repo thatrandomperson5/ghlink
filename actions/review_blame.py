@@ -15,7 +15,8 @@ print(diff)
 if diff != ["public/refs.toml"]:
     sys.exit("You can only edit public/refs.toml")
 with open("public/refs.diff", "r") as f:
-    blame = f.read()
+    blame = f.readlines()
+blame = "\n".join(blame[3:])
 author = os.getenv("author")
 print(author)
 print(blame)
