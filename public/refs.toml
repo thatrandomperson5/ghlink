@@ -2,3 +2,6 @@
 #Format: name = "url"
 [github]
 thatrnpr = {val = "https://github.com/thatrandomperson5", author = "thatrandomperson5"}
+lol = {val = "https://github.com/l/o/l", author = "thatrandomperson5"}
+lol2 = {val = "https://github.com/l/o/l/2", author = "thatrandomperson5"}
+hello = {val = "https://github.com/h/ello", author = "hi"}
